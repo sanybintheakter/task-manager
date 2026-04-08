@@ -1,15 +1,18 @@
+"use client";
+
 import TaskCard from "./TaskCard";
 
-export default function TaskList({ tasks }) {
-  if (tasks.length === 0) {
-    return <p className="text-gray-400 p-4">No tasks yet!</p>;
-  }
-
+export default function TaskList({ tasks, onToggle }) {
   return (
     <ul>
       {tasks.map((task) => (
         <li key={task.id}>
-          <TaskCard title={task.title} done={task.done} />
+          <TaskCard
+            id={task.id}
+            title={task.title}
+            done={task.done}
+            onToggle={onToggle}
+          />
         </li>
       ))}
     </ul>
